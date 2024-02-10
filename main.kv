@@ -1,0 +1,227 @@
+ScreenManager:
+    WindowMain:
+    WindowSignin:
+    WindowSignup:
+    
+<WindowMain>:
+    name:"main"
+    MDFloatLayout:
+        Image:
+            id:image1
+            source:'logo.jpg'
+            pos_hint:{'center_x':0.45,'center_y':0.8}
+            size_hint:None,None
+            size:400,400
+            anim_delay:0.05
+            anim_loop:50
+            anim_reset:True
+        MDLabel:
+            id:phrase1
+            text:"Bienvenue parmi nous"
+            halign: "center"
+            pos_hint:{"center_y":0.6}
+            theme_text_color: "Custom"
+            text_color: "orange"
+            font_style: "Display"
+            role: "small"
+            size_text_x: .5
+        
+        MDButton:
+            id:flatbutton1
+            style:"filled"
+            theme_shadow_color:"Custom"
+            shadow_color:"green"
+            theme_width:"Custom"
+            height: "50dp"
+            size_hint_x: .5
+            pos_hint:{"center_x":0.5 , "center_y":0.45}
+            on_release:
+                app.play_music()
+                app.root.current="signin"
+                root.manager.transition.direction="up"
+            MDButtonText:
+                text:"Commencer"
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+            
+<WindowSignin>:
+    name:"signin"
+    MDFloatLayout:
+        Image:
+            id:image2
+            source:'se connecter.jpeg'
+            pos_hint:{'center_x':0.5,'center_y':0.80}
+            size_hint:None,None
+            size:250,250
+            anim_delay:0.05
+            anim_loop:50
+            anim_reset:True
+
+        MDTextField:
+            id:user_email1
+            pos_hint:{'center_x':0.5,'center_y':0.6}
+            size_hint:None,None
+            width:400
+            MDTextFieldLeadingIcon:
+                icon:"email"
+            MDTextFieldHintText:
+                text:"Entrer votre E-mail"
+            MDTextFieldHelperText:
+                text:"************@gmail.com"
+        
+        MDTextField:
+            id:user_password1
+            pos_hint:{'center_x':0.5,'center_y':0.45}
+            size_hint:None,None
+            width:400
+            password:True
+            MDTextFieldLeadingIcon:
+                icon:"eye-off"
+            MDTextFieldHintText:
+                text:"Entrer votre mot de passe"
+            MDTextFieldHelperText:
+                text:"**************"
+
+        MDButton:
+            id:flatbutton2
+            style:"elevated"
+            theme_shadow_color: "Custom"
+            shadow_color: "green"
+            theme_width: "Custom"
+            height: "50dp"
+            size_hint_x: .5
+            pos_hint:{"center_x":0.5 , "center_y":0.3}
+            on_press:
+            MDButtonText:
+                text:"Se-connecter"
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                theme_text_color: "Custom"
+                text_color: "green"
+        MDLabel:
+            id:phrase2
+            text: "Vous n'avez pas de compte ?"
+            pos_hint:{"center_x":0.65 , "center_y":0.17}
+
+        MDButton:
+            id:textbutton2
+            style:"text"
+            size_hint_x: .4
+            pos_hint:{"center_x":0.75 , "center_y":0.17}
+            on_release: 
+                app.root.current="signup"
+                root.manager.transition.direction="up"
+            MDButtonText:
+                text:"S'inscrire"
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                theme_text_color: "Custom"
+                text_color: "red"
+        MDButton:
+            id:textbutton2
+            style:"text"
+            size_hint_x: .8
+            pos_hint:{"center_x":0.1 , "center_y":0.95}
+            on_release: 
+                app.root.current="main"
+                root.manager.transition.direction="down"
+            MDButtonText:
+                text:"<-"
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                theme_text_color: "Custom"
+                text_color: "green" 
+                font_style: "Display"
+                role: "medium" 
+        
+
+<WindowSignup>:
+    name:"signup"
+    MDFloatLayout:
+        Image:
+            id:image3
+            source:'sinscrire.jpeg'
+            pos_hint:{'center_x':0.5,'center_y':0.85}
+            size_hint:None,None
+            size:200,200
+            anim_delay:0.05
+            anim_loop:50
+            anim_reset:True
+
+        MDTextField:
+            id:user_name
+            pos_hint:{'center_x':0.5,'center_y':0.7}
+            size_hint:None,None
+            width:400
+            MDTextFieldLeadingIcon:
+                icon:"account-circle-outline"
+            MDTextFieldHintText:
+                text:"Entrer votre Nom et Prénom"
+            MDTextFieldHelperText:
+                text:"foulen ben foulen"
+        
+        MDTextField:
+            id:user_email2
+            pos_hint:{'center_x':0.5,'center_y':0.57}
+            size_hint:None,None
+            width:400
+            MDTextFieldLeadingIcon:
+                icon:"email"
+            MDTextFieldHintText:
+                text:"Entrer votre E-mail"
+            MDTextFieldHelperText:
+                text:"************@gmail.com"
+        
+        MDTextField:
+            id:user_telephone1
+            pos_hint:{'center_x':0.5,'center_y':0.44}
+            size_hint:None,None
+            width:400
+            MDTextFieldLeadingIcon:
+                icon:"phone"
+            MDTextFieldHintText:
+                text:"Entrer votre Numero de Telephone"
+            MDTextFieldHelperText:
+                text:"+21688888888"
+        
+        MDTextField:
+            id:user_password2
+            pos_hint:{'center_x':0.5,'center_y':0.31}
+            size_hint:None,None
+            width:400
+            password:False
+            MDTextFieldLeadingIcon:
+                icon:"key"
+            MDTextFieldHintText:
+                text:"Entrer votre mot de passe"
+            MDTextFieldHelperText:
+                text:"**************"
+
+        MDButton:
+            id:flatbutton3
+            style:"elevated"
+            theme_shadow_color: "Custom"
+            shadow_color: "red"
+            theme_width: "Custom"
+            height: "50dp"
+            size_hint_x: .35
+            pos_hint:{"center_x":0.7 , "center_y":0.18}
+            on_press:
+            MDButtonText:
+                text:"S'inscrire"
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                theme_text_color: "Custom"
+                text_color: "red"
+        MDButton:
+            id:flatbutton4
+            style:"elevated"
+            theme_shadow_color: "Custom"
+            shadow_color: "green"
+            theme_width: "Custom"
+            height: "50dp"
+            size_hint_x: .35
+            pos_hint:{"center_x":0.3 , "center_y":0.18}
+            on_release:
+                app.root.current="signin"
+                root.manager.transition.direction="down"
+            MDButtonText:
+                text:"Retour"
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                theme_text_color: "Custom"
+                text_color: "green"
